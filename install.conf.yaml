@@ -10,3 +10,7 @@
     ~/.config/wireplumber/policy.lua.d/11-bluetooth-policy.lua:
       path: wireplumber/policy.lua.d/11-bluetooth-policy.lua
       create: true
+    ~/.config/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf:
+      path: wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf
+      create: true
+
