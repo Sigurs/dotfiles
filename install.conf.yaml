@@ -1,0 +1,12 @@
+# Default settings
+- defaults:
+    link:
+      relink: true
+
+# Check home for dead symlinks and delete them
+- clean: ['~']
+
+- link:
+    ~/.config/wireplumber/policy.lua.d/11-bluetooth-policy.lua:
+      path: wireplumber/policy.lua.d/11-bluetooth-policy.lua
+      create: true
