@@ -17,3 +17,10 @@
       path: wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf
       create: true
 
+# Install basic packages with yum
+- yum:
+    htop:
+    nano:
+    neovim:
+    screen:
+    tmux:
