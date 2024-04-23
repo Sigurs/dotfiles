@@ -10,16 +10,16 @@
 - link:
     # Disable Bluetooth auto-swithing on Ubuntu 22.04 LTS
     ~/.config/wireplumber/policy.lua.d/11-bluetooth-policy.lua:
-      path: wireplumber/policy.lua.d/11-bluetooth-policy.lua
+      path: ./.config/wireplumber/policy.lua.d/11-bluetooth-policy.lua
       create: true
     # Disable Bluetooth auto-swithing on Fedora 39+
     ~/.config/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf:
-      path: wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf
+      path: ./.config/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf
       create: true
     ~/.tmux.conf:
       path: .tmux.conf
     ~/.zshrc:
       path: .zshrc
     ~/.config/easyeffects/input/home-office.json:
-      path: easyeffects/input/home-office.json
+      path: ./.config/easyeffects/input/home-office.json
       create: true
