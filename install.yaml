@@ -16,6 +16,8 @@
     ~/.config/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf:
       path: ./.config/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf
       create: true
+    ~/.config/kitty:
+      path: .config/kitty
     ~/.tmux.conf:
       path: .tmux.conf
     ~/.zshrc:
