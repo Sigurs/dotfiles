@@ -18,6 +18,8 @@
       create: true
     ~/.tmux.conf:
       path: tmux.conf
+    ~/.zshrc:
+      path: .zshrc
     ~/.config/easyeffects/input/home-office.json:
       path: easyeffects/input/home-office.json
       create: true
