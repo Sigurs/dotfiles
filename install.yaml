@@ -25,3 +25,23 @@
     ~/.config/easyeffects/input/home-office.json:
       path: ./.config/easyeffects/input/home-office.json
       create: true
+
+# Install NerdFontsSymbolsOnly
+- if:
+  - cond: 'fc-list | grep SymbolsNerdFont'
+    met:
+    - shell:
+      - echo SymbolsNerdFont already installed.
+    unmet:
+    - shell:
+      - wget -O /tmp/NerdFontsSymbolsOnly.tar.xz https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/NerdFontsSymbolsOnly.tar.xz
+    - if:
+        cond: 'echo /tmp/NerdFontsSymbolsOnly.tar.xz| sha256sum -c checksums/NerdFontsSymbolsOnly.tar.xz.sha256'
+        met:
+        - shell:
+          - rm -fR /tmp/NerdFontsSymbolsOnly || true
+          - mkdir /tmp/NerdFontsSymbolsOnly
+          - tar -xvf /tmp/NerdFontsSymbolsOnly.tar.xz -C /tmp/NerdFontsSymbolsOnly
+          - cp /tmp/NerdFontsSymbolsOnly/*.ttf ~/.local/share/fonts
+          - fc-cache -v
+
