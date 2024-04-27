@@ -1,0 +1,4 @@
+# Create symbolic links
+- link:
+    ~/.config/kitty:
+      path: ./kitty

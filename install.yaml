@@ -6,42 +6,10 @@
 # Check home for dead symlinks and delete them
 - clean: ['~']
 
-# Create symbolic links
-- link:
-    # Disable Bluetooth auto-swithing on Ubuntu 22.04 LTS
-    ~/.config/wireplumber/policy.lua.d/11-bluetooth-policy.lua:
-      path: ./.config/wireplumber/policy.lua.d/11-bluetooth-policy.lua
-      create: true
-    # Disable Bluetooth auto-swithing on Fedora 39+
-    ~/.config/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf:
-      path: ./.config/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf
-      create: true
-    ~/.config/kitty:
-      path: .config/kitty
-    ~/.tmux.conf:
-      path: .tmux.conf
-    ~/.zshrc:
-      path: .zshrc
-    ~/.config/easyeffects/input/home-office.json:
-      path: ./.config/easyeffects/input/home-office.json
-      create: true
-
-# Install NerdFontsSymbolsOnly
-- if:
-  - cond: 'fc-list | grep SymbolsNerdFont'
-    met:
-    - shell:
-      - echo SymbolsNerdFont already installed.
-    unmet:
-    - shell:
-      - wget -O /tmp/NerdFontsSymbolsOnly.tar.xz https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/NerdFontsSymbolsOnly.tar.xz
-    - if:
-        cond: 'echo /tmp/NerdFontsSymbolsOnly.tar.xz| sha256sum -c checksums/NerdFontsSymbolsOnly.tar.xz.sha256'
-        met:
-        - shell:
-          - rm -fR /tmp/NerdFontsSymbolsOnly || true
-          - mkdir /tmp/NerdFontsSymbolsOnly
-          - tar -xvf /tmp/NerdFontsSymbolsOnly.tar.xz -C /tmp/NerdFontsSymbolsOnly
-          - cp /tmp/NerdFontsSymbolsOnly/*.ttf ~/.local/share/fonts
-          - fc-cache -v
-
+- includes:
+    shell: shell.yaml
+    tmux: tmux.yaml
+    zsh: zsh.yaml
+    easyeffects: easyeffects.yaml
+    wireplumber: wireplumber.yaml
+    kitty: kitty.yaml

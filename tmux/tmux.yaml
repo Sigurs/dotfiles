@@ -1,0 +1,4 @@
+# Create symbolic links
+- link:
+    ~/.tmux.conf:
+      path: tmux.conf

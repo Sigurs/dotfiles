@@ -1,0 +1,10 @@
+# Create symbolic links
+- link:
+    # Disable Bluetooth auto-swithing on Ubuntu 22.04 LTS
+    ~/.config/wireplumber/policy.lua.d/11-bluetooth-policy.lua:
+      path: ./policy.lua.d/11-bluetooth-policy.lua
+      create: true
+    # Disable Bluetooth auto-swithing on Fedora 39+
+    ~/.config/wireplumber/wireplumber.conf.d/11-bluetooth-policy.conf:
+      path: ./wireplumber.conf.d/11-bluetooth-policy.conf
+      create: true

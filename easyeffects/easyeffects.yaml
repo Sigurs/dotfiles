@@ -1,0 +1,6 @@
+
+# Create symbolic links
+- link:
+    ~/.config/easyeffects/input/home-office.json:
+      path: ./input/home-office.json
+      create: true
