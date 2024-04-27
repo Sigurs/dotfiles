@@ -16,3 +16,9 @@
           - tar -xvf /tmp/NerdFontsSymbolsOnly.tar.xz -C /tmp/NerdFontsSymbolsOnly
           - cp /tmp/NerdFontsSymbolsOnly/*.ttf ~/.local/share/fonts
           - fc-cache -v
+
+# Create symbolic links
+- link:
+    ~/.p10k.zsh:
+      path: ./p10k.zsh
+      create: true
