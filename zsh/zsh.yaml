@@ -1,4 +1,0 @@
-# Create symbolic links
-- link:
-    ~/.zshrc:
-      path: zshrc

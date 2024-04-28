@@ -9,7 +9,6 @@
 - includes:
     shell: shell.yaml
     tmux: tmux.yaml
-    zsh: zsh.yaml
     easyeffects: easyeffects.yaml
     wireplumber: wireplumber.yaml
     kitty: kitty.yaml

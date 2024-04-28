@@ -19,6 +19,8 @@
 
 # Create symbolic links
 - link:
+    ~/.zshrc:
+      path: zshrc
     ~/.p10k.zsh:
       path: ./p10k.zsh
       create: true
