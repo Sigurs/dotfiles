@@ -11,10 +11,7 @@
     # Fonts
     ~/.local/share/fonts/:
       glob: true
-      path: fonts/FiraCodeSigurs/**.ttf
-    ~/.local/share/fonts/:
-      glob: true
-      path: fonts/NerdFontsSymbolsOnly/**.ttf
+      path: fonts/*/*.ttf
     # Shell
     ~/.zshrc:
       path: shell/zshrc
