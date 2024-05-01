@@ -7,6 +7,22 @@
 # Check home for dead symlinks and delete them
 - clean: ['~']
 
+- git:
+    '~/.oh-my-zsh':
+        url: 'https://github.com/ohmyzsh/ohmyzsh.git'
+        commit: 8581ecd462ab2714936398c54433ed1deddb2926
+        description: 'oh my zsh'
+        method: clone
+    '~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting':
+        url: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+        commit: e0165eaa730dd0fa321a6a6de74f092fe87630b0
+        description: 'oh my zsh - zsh-syntax-highlighting'
+        method: clone
+    '~/.oh-my-zsh/custom/themes/powerlevel10k':
+        url: 'https://github.com/romkatv/powerlevel10k.git'
+        commit: b28d68f44b42f25703673fac514d0777f0af9d8a
+        description: 'oh my zsh - powerlevel10k'
+        method: clone
 - link:
     # Fonts
     ~/.local/share/fonts/:
