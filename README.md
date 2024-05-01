@@ -1,1 +1,2 @@
-# The bestest of the dotfiles
+# Dotfiles
+The bestest of the dotfiles.
