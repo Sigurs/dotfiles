@@ -35,6 +35,9 @@
       path: shell/p10k.zsh
     ~/.tmux.conf:
       path: shell/tmux.conf
+    # Tools
+    ~/.local/bin/update-discord:
+      path: tools/update-discord
     # Kitty
     ~/.config/kitty:
       path: kitty
