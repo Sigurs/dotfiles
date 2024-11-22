@@ -19,6 +19,13 @@ if [ -d "$HOME/.pyenv" ]; then
   eval "$(pyenv init --path)"
 fi
 
+# CUDA
+if [ -d "/opt/cuda/bin" ]; then
+  export PATH=$PATH:/opt/cuda/bin/
+fi
+
+
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
