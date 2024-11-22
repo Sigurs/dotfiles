@@ -2,3 +2,6 @@
 	path = dotbot
 	url = https://github.com/sigurs/dotbot
 	ignore = dirty
+[submodule "ohmyzsh/.oh-my-zsh"]
+	path = ohmyzsh/.oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
