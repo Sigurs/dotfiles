@@ -1,9 +1,0 @@
-# Install basic packages with yum
-- yum:
-    htop:
-    nano:
-    neovim:
-    screen:
-    tmux:
-    solaar:
-    kitty:
