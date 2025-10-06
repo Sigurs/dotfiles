@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -xe
 
 source /etc/os-release
 case $ID in
