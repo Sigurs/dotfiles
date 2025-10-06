@@ -32,7 +32,6 @@ if [ -d "/opt/cuda/bin" ]; then
 fi
 
 
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -155,6 +154,11 @@ if ! pgrep -u "$USER" ssh-agent > /dev/null; then
 fi
 if [ ! -f "$SSH_AUTH_SOCK" ]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+fi
+
+# direnv
+if command -v direnv > /dev/null; then
+  eval "$(direnv hook zsh)"
 fi
 
 # Don't share history between instances
