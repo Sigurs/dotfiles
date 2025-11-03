@@ -7,3 +7,6 @@
 [submodule "ohmyzsh-themes/.oh-my-zsh/custom/themes/powerlevel10k"]
 	path = ohmyzsh-themes/.oh-my-zsh/custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "submodules/image-digest"]
+	path = submodules/image-digest
+	url = https://github.com/Sigurs/image-digest.git
