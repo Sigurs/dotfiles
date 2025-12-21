@@ -1,0 +1,181 @@
+# Deckky Configuration Example with OBS Visual Feedback
+# This example demonstrates OBS controls with visual feedback features
+
+# OBS WebSocket connection settings
+obs:
+  host: "localhost"
+  port: 4455
+  password: ""  # Leave empty if no password is set
+  poll_interval: 1  # Seconds between status checks (default: 1)
+
+# Home Assistant WebSocket connection settings
+homeassistant:
+  host: "localhost"
+  port: 8123
+  access_token: ""  # Your long-lived access token from Home Assistant
+  ssl: true  # Set to false if using HTTP instead of HTTPS
+
+# Spatial group configuration
+groups:
+  # Main group: Left 3 columns
+  main:
+    name: "Main Controls"
+    buttons: [0, 1, 2, 
+              8, 9, 10, 
+              16, 17, 18, 
+              24, 25, 26]
+    pages:
+      # Page 0: Home shortcuts
+      0:
+        name: "Home"
+        buttons:
+          0:
+            type: hotkey
+            keys: ["ctrl", "c"]
+            label: "Copy"
+
+          1:
+            type: hotkey
+            keys: ["ctrl", "v"]
+            label: "Paste"
+
+          2:
+            type: hotkey
+            keys: ["ctrl", "x"]
+            label: "Cut"
+
+          8:
+            type: hotkey
+            keys: ["ctrl", "z"]
+            label: "Undo"
+
+          9:
+            type: hotkey
+            keys: ["ctrl", "shift", "z"]
+            label: "Redo"
+
+          # Page navigation
+          26:
+            type: page_switch
+            page: 1
+            label: "OBS\n>"
+
+      # Page 1: OBS Scene Controls with Visual Feedback
+      1:
+        name: "OBS Scenes"
+        buttons:
+          # Scene switching buttons with visual feedback
+          0:
+            type: obs
+            action: scene_switch
+            scene: "Starting Soon"
+            label: "Start\nScene"
+
+          1:
+            type: obs
+            action: scene_switch
+            scene: "Main"
+            label: "Main\nScene"
+
+          2:
+            type: obs
+            action: scene_switch
+            scene: "Break"
+            label: "Break\nScene"
+
+          # Recording controls with toggle behavior
+          8:
+            type: obs
+            action: toggle_recording
+            label: "Record"
+
+          9:
+            type: obs
+            action: toggle_streaming
+            label: "Stream"
+
+          26:
+            type: page_switch
+            page: 2
+            label: "More\n>"
+
+      # Page 2: Additional controls
+      2:
+        name: "More Controls"
+        buttons:
+          0:
+            type: hotkey
+            keys: ["super", "return"]
+            label: "Terminal"
+
+          1:
+            type: hotkey
+            keys: ["super", "b"]
+            label: "Browser"
+
+          2:
+            type: hotkey
+            keys: ["super", "f"]
+            label: "File\nManager"
+
+          # Back to OBS
+          26:
+            type: page_switch
+            page: 0
+            label: "Home\n>"
+
+  # Stable group: Right column (buttons 24-31)
+  stable:
+    name: "Stable Controls"
+    buttons: [7, 15, 23, 31]
+    pages:
+      # Page 0: Volume and Quick OBS controls
+      0:
+        name: "Volume"
+        buttons:
+          7:
+            type: volume
+            action: display
+
+          15:
+            type: volume
+            action: increase
+            amount: 5
+            label: "Vol +"
+
+          23:
+            type: volume
+            action: decrease
+            amount: 5
+            label: "Vol -"
+
+          # Page navigation
+          31:
+            type: homeassistant
+            action: toggle_light
+            entity_id: "light.office_key_lights"
+            label: "Lights"
+
+# Stream Deck settings
+streamdeck:
+  brightness: 40  # 0-100
+  page_timeout: 0  # Seconds before returning to page 0 (0 = disabled)
+  font_paths:  # Optional: Custom font paths (will try in order)
+    - "~/.local/share/fonts/FiraCodeSigurs/FiraCodeSigurs-SemiBold.ttf"
+
+# OBS Visual Feedback Features:
+# - Scene buttons show blue background when their scene is active
+# - Record/Stream buttons show red background when recording/streaming is active
+# - Toggle buttons change appearance based on current state (● for active, ○ for inactive)
+# - Tokyo Night theme colors: #5e81ac (active scene blue), #f7768e (active recording/streaming red)
+# - Configurable polling interval via obs.poll_interval setting
+# - Visual updates happen automatically when OBS status changes
+
+# Available OBS Actions:
+# - scene_switch: Switch to a specific scene (requires 'scene' parameter)
+# - toggle_recording: Start/stop recording based on current state
+# - toggle_streaming: Start/stop streaming based on current state
+# - start_recording: Start recording
+# - stop_recording: Stop recording
+# - start_streaming: Start streaming
+# - stop_streaming: Stop streaming

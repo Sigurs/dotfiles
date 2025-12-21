@@ -1,0 +1,12 @@
+[Unit]
+Description=Deckky Stream Deck Controller
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/opt/deckky/venv/bin/deckky
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

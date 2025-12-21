@@ -6,7 +6,7 @@ set -xe
 sudo ./packages.sh
 
 # Stow
-stow -S fonts kitty ohmyzsh ohmyzsh-plugins ohmyzsh-themes p10k scripts tmux wireplumber zsh git
+stow -S fonts kitty ohmyzsh ohmyzsh-plugins ohmyzsh-themes p10k scripts tmux wireplumber zsh git deckky
 
 # Set global gitignore
 git config --global core.excludesfile ~/.gitignore_global

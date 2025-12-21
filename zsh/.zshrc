@@ -164,3 +164,6 @@ fi
 # Don't share history between instances
 setopt no_share_history
 unsetopt share_history
+
+# Aliases
+alias starcitizen='WINEPREFIX=/mnt/storage/games/umu-starcitizen GAMEID="umu-starcitizen" PROTONPATH="GE-Latest" umu-run "/mnt/storage/games/umu-starcitizen/drive_c/Program Files/Roberts Space Industries/RSI Launcher/RSI Launcher.exe"'
