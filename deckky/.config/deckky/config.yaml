@@ -124,6 +124,42 @@ groups:
             page: 0
             label: "Home\n>"
 
+  # DLZ group
+  dlz_pads:
+    name: "DLZ Pads"
+    buttons: [3, 4, 5, 11, 12, 13, 19, 20, 21, 27, 28, 29]
+    pages:
+      0:
+        name: "DLZ Pads"
+        buttons:
+          # DLZ Pad buttons - pads are automatically loaded from DLZ Creator
+          # The system will display pad names on buttons and trigger playback on press
+          # Pads that are currently playing will show a green background
+          3:
+            type: dlz_pad
+          4:
+            type: dlz_pad
+          5:
+            type: dlz_pad
+          11:
+            type: dlz_pad
+          12:
+            type: dlz_pad
+          13:
+            type: dlz_pad
+          19:
+            type: dlz_pad
+          20:
+            type: dlz_pad
+          21:
+            type: dlz_pad
+          27:
+            type: dlz_pad
+          28:
+            type: dlz_pad
+          29:
+            type: dlz_pad
+
   # Stable group: Right column (buttons 24-31)
   stable:
     name: "Stable Controls"
