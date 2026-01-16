@@ -8,7 +8,7 @@ case $ID in
     apt install stow install htop nano screen tmux kitty direnv git
     ;;
   arch)
-    pacman -S stow htop nano screen tmux kitty direnv git alsa-utils pipewire pipewire-alsa pipewire-pulse wget curl
+    pacman -S --needed stow htop nano screen tmux kitty direnv git alsa-utils pipewire pipewire-alsa pipewire-pulse wireplumber wget curl
     ;;
   *)
     echo -n "unsupported linux distro"
