@@ -1,0 +1,24 @@
+[Unit]
+Description=Keep Mackie DLZ Creator XS hardware active with silent audio stream
+After=pipewire-pulse.service
+BindsTo=pipewire-pulse.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+# Wait for device to be available, then play silence
+ExecStart=/bin/sh -c '\
+  while true; do \
+    if pactl list sinks short | grep -q "alsa_output.usb-LOUD_Audio__LLC_DLZ_Creator_XS"; then \
+      SINK=$(pactl list sinks short | grep "alsa_output.usb-LOUD_Audio__LLC_DLZ_Creator_XS.*HiFi" | head -1 | cut -f2); \
+      if [ -n "$SINK" ]; then \
+        pacat -p --device="$SINK" --rate=48000 --channels=2 --format=s16le --latency-msec=500 --volume=0 /dev/zero; \
+      fi; \
+    fi; \
+    sleep 5; \
+  done'
+
+[Install]
+WantedBy=default.target
