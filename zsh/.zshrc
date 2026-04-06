@@ -31,6 +31,10 @@ if [ -d "/opt/cuda/bin" ]; then
   export PATH=$PATH:/opt/cuda/bin/
 fi
 
+# OpenCode
+if [ -d "$HOME/.opencode" ]; then
+  export PATH=$HOME/.opencode/bin:$PATH
+fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -164,6 +168,3 @@ fi
 # Don't share history between instances
 setopt no_share_history
 unsetopt share_history
-
-# Aliases
-alias starcitizen='WINEPREFIX=/mnt/storage/games/umu-starcitizen GAMEID="umu-starcitizen" PROTONPATH="GE-Latest" umu-run "/mnt/storage/games/umu-starcitizen/drive_c/Program Files/Roberts Space Industries/RSI Launcher/RSI Launcher.exe"'
