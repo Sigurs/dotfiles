@@ -1,2 +1,34 @@
 .envrc
 .direnv/
+
+# Neovim / Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# JetBrains IDEs
+.idea/
+
+# VS Code
+.vscode/
+
+# zsh / bash history
+.zsh_history
+.bash_history
+
+# mise / asdf local version files
+.mise.local.toml
+.tool-versions.local
+
+# Local env overrides
+.env
+.env.local
+.env.*.local
+
+# Linux file manager cache
+.Thumbnails
+Thumbs.db
+
+# Trash
+.Trash-*
