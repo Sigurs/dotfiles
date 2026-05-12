@@ -36,6 +36,11 @@ if [ -d "$HOME/.opencode" ]; then
   export PATH=$HOME/.opencode/bin:$PATH
 fi
 
+# direnv
+if command -v direnv > /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -145,7 +150,6 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
 # zsh-syntax-highlighting disable underscores
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
@@ -158,11 +162,6 @@ if ! pgrep -u "$USER" ssh-agent > /dev/null; then
 fi
 if [ ! -f "$SSH_AUTH_SOCK" ]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
-fi
-
-# direnv
-if command -v direnv > /dev/null; then
-  eval "$(direnv hook zsh)"
 fi
 
 # Don't share history between instances
