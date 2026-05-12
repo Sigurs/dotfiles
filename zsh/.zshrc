@@ -16,7 +16,7 @@ fi
 if [ -d "$HOME/.pyenv" ]; then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
+  eval "$(pyenv init - zsh)"
 fi
 
 # Node Version Manager - lazy load
@@ -167,7 +167,16 @@ if [ ! -f "$SSH_AUTH_SOCK" ]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
 
-# Don't share history between instances
-setopt no_share_history
-
 COLORTERM=truecolor
+
+# History configuration
+## Set the amount of history
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+## Don't share history between instances
+setopt NO_SHARE_HISTORY
+## Extended hiostry,  :start:elapsed;command
+setopt EXTENDED_HISTORY
+## Don't record entries starting with space
+setopt HIST_IGNORE_SPACE
