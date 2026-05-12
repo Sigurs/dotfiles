@@ -8,7 +8,7 @@ case $ID in
     apt install -y stow htop nano screen tmux kitty direnv git \
       build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
       libsqlite3-dev libncursesw5-dev xz-utils tk-dev libxml2-dev \
-      libxmlsec1-dev libffi-dev liblzma-dev curl wget
+      libxmlsec1-dev libffi-dev liblzma-dev curl wget fzf
 
     # Rust
     if ! command -v rustup &>/dev/null; then
@@ -31,7 +31,7 @@ case $ID in
   arch)
     pacman -S --needed stow htop nano screen tmux kitty direnv git \
       alsa-utils pipewire pipewire-alsa pipewire-pulse wireplumber wget curl \
-      rustup
+      rustup fzf
 
     # Pyenv (not in official repos)
     if [ ! -d "$HOME/.pyenv" ]; then
