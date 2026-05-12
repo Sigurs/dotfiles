@@ -169,6 +169,5 @@ fi
 
 # Don't share history between instances
 setopt no_share_history
-unsetopt share_history
 
 COLORTERM=truecolor
