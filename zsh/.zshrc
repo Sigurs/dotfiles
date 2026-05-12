@@ -175,4 +175,4 @@ fi
 setopt no_share_history
 unsetopt share_history
 
-COLORTERM=truecolors 
+COLORTERM=truecolor
