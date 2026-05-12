@@ -13,5 +13,5 @@ stow --no-folding --dotfiles -S fonts kitty ohmyzsh ohmyzsh-plugins ohmyzsh-them
 # Set global gitignore
 git config --global core.excludesfile ~/.gitignore_global
 
-# Refresh fonts
-./fonts-post.sh
+# Refresh font cache
+fc-cache -f
