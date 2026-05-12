@@ -8,7 +8,7 @@ sudo ./packages.sh
 mkdir -p ~/.config/{deckky}
 
 # Stow
-stow --no-folding --dotfiles -S fonts kitty ohmyzsh ohmyzsh-plugins ohmyzsh-themes p10k scripts tmux wireplumber zsh git deckky
+stow --no-folding --dotfiles -S fonts kitty ohmyzsh ohmyzsh-plugins ohmyzsh-themes p10k scripts tmux wireplumber zsh git
 
 # Set global gitignore
 git config --global core.excludesfile ~/.gitignore_global
