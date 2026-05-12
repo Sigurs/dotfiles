@@ -43,10 +43,6 @@ if [ -d "$HOME/.opencode" ]; then
   export PATH=$HOME/.opencode/bin:$PATH
 fi
 
-# direnv
-if command -v direnv > /dev/null; then
-  eval "$(direnv hook zsh)"
-fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -121,7 +117,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf docker docker-compose kubectl kubectx kube-ps1 direnv pyenv zsh-syntax-highlighting)
+plugins=(git fzf docker docker-compose kubectl kubectx kube-ps1 direnv zsh-syntax-highlighting)
 
 if [ -f "$ZSH/oh-my-zsh.sh" ]; then
   source $ZSH/oh-my-zsh.sh
