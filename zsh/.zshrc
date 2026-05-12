@@ -19,11 +19,18 @@ if [ -d "$HOME/.pyenv" ]; then
   eval "$(pyenv init --path)"
 fi
 
-# Node Version Manager
+# Node Version Manager - lazy load
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  nvm() {
+    unfunction nvm node npm npx 2>/dev/null
+    [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+    nvm "$@"
+  }
+  node() { nvm; node "$@"; }
+  npm()  { nvm; npm "$@"; }
+  npx()  { nvm; npx "$@"; }
 fi
 
 # CUDA
