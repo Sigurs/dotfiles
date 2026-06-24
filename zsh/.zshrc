@@ -17,21 +17,22 @@ if [ -d "$HOME/.pyenv" ]; then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init - zsh)"
+
+  # We want to compile python installations with sqlite extension support for CCE
+  export PYTHON_CONFIGURE_OPTS="--enable-loadable-sqlite-extensions"
 fi
 
-# Node Version Manager - lazy load
+# UV - use UV for Python packages, but do python versions with pyenv.
+export UV_PYTHON_PREFERENCE=only-system   # never use/download uv-managed Pythons
+export UV_PYTHON_DOWNLOADS=never          # don't auto-download on demand
+
+# Node Version Manager
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
-  nvm() {
-    unfunction nvm node npm npx 2>/dev/null
-    [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-    [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
-    nvm "$@"
-  }
-  node() { nvm; node "$@"; }
-  npm()  { nvm; npm "$@"; }
-  npx()  { nvm; npx "$@"; }
+  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 fi
+
 
 # CUDA
 if [ -d "/opt/cuda/bin" ]; then
@@ -180,3 +181,10 @@ setopt NO_SHARE_HISTORY
 setopt EXTENDED_HISTORY
 ## Don't record entries starting with space
 setopt HIST_IGNORE_SPACE
+
+# Set DO_NOT_TRACK
+export DO_NOT_TRACK=1
+
+# FZF config
+export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
+export FZF_DEFAULT_COMMAND="fd --type f"
