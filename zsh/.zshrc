@@ -168,6 +168,20 @@ if [ ! -f "$SSH_AUTH_SOCK" ]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
 
+ask() {
+  read -q "?$* [y/N] " && { echo; "$@" } || echo
+}
+
+init_new_project() {
+    ask touch .envrc
+    ask direnv allow
+    ask git init
+    ask openspec init --tools opencode
+    ask openspec init --tools claude
+    ask cce init
+}
+
+# Set terminal colors
 COLORTERM=truecolor
 
 # History configuration

@@ -25,6 +25,7 @@
 .env
 .env.local
 .env.*.local
+.envrc
 
 # Linux file manager cache
 .Thumbnails
@@ -32,3 +33,5 @@ Thumbs.db
 
 # Trash
 .Trash-*
+
+**/.claude/settings.local.json
