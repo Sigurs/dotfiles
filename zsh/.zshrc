@@ -1,3 +1,7 @@
+# Some basic ENVs
+export DO_NOT_TRACK=1
+export COLORTERM=truecolor
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -33,7 +37,6 @@ if [ -d "$HOME/.nvm" ]; then
   [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 fi
 
-
 # CUDA
 if [ -d "/opt/cuda/bin" ]; then
   export PATH=$PATH:/opt/cuda/bin/
@@ -44,7 +47,7 @@ if [ -d "$HOME/.opencode" ]; then
   export PATH=$HOME/.opencode/bin:$PATH
 fi
 
-
+# ZSH
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -164,7 +167,7 @@ touch $XDG_RUNTIME_DIR/ssh-agent.env
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent > "$XDG_RUNTIME_DIR/ssh-agent.env"
 fi
-if [ ! -f "$SSH_AUTH_SOCK" ]; then
+if [ ! -S "$SSH_AUTH_SOCK" ]; then
     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 fi
 
@@ -172,6 +175,7 @@ ask() {
   read -q "?$* [y/N] " && { echo; "$@" } || echo
 }
 
+# Easy function to run to get new projects setup
 init_new_project() {
     ask touch .envrc
     ask direnv allow
@@ -180,9 +184,6 @@ init_new_project() {
     ask openspec init --tools claude
     ask cce init
 }
-
-# Set terminal colors
-COLORTERM=truecolor
 
 # History configuration
 ## Set the amount of history
@@ -195,10 +196,9 @@ setopt NO_SHARE_HISTORY
 setopt EXTENDED_HISTORY
 ## Don't record entries starting with space
 setopt HIST_IGNORE_SPACE
-
-# Set DO_NOT_TRACK
-export DO_NOT_TRACK=1
+## Drop older duplicates 
+setopt HIST_IGNORE_ALL_DUPS
 
 # FZF config
-export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
 export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always {}'"
